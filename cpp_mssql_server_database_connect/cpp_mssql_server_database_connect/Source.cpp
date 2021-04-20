@@ -1,23 +1,26 @@
-
-#include  <iostream>
+#include <iostream>
 #include <locale.h>
 #include <string>
-
-
 #include <windows.h>
 #include <sqlext.h>
 #include <sqltypes.h>
 #include <sql.h>
+
+
 using namespace std;
+
+
+
+
+
 
 int main()
 {
 	setlocale(LC_ALL, "Turkish");
 
-
-
 #define SQL_RESULT_LEN 240
 #define SQL_RETURN_CODE_LEN 1000
+
 	//define handles and variables
 	SQLHANDLE sqlConnHandle;
 	SQLHANDLE sqlStmtHandle;
@@ -36,16 +39,13 @@ int main()
 	//output
 	cout << "Attempting connection to SQL Server...";
 	cout << "\n";
+
 	//connect to SQL Server  
-	//I am using a trusted connection and port 14808
-	//it does not matter if you are using default or named instance
-	//just make sure you define the server name and the port
-	//You have the option to use a username/password instead of a trusted connection
-	//but is more secure to use a trusted connection
+
 	switch (SQLDriverConnect(sqlConnHandle,
 		NULL,
 		//(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 1433;DATABASE=master;UID=username;PWD=password;",
-		(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 46250;DATABASE=master;Trusted=true;",
+		(SQLWCHAR*)L"DRIVER={SQL Server};SERVER=localhost, 460;DATABASE=master;Trusted=true;",
 		SQL_NTS,
 		retconstring,
 		1024,
